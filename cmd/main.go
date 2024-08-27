@@ -19,7 +19,7 @@ type server struct {
 }
 
 func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-	log.Printf("user id: %d", req.GetUserNames())
+	log.Printf("user id: %v", req.GetUserNames())
 
 	return &desc.CreateResponse{Id: 5}, nil
 }
