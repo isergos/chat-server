@@ -18,19 +18,19 @@ type server struct {
 	desc.UnimplementedChatServerV1Server
 }
 
-func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
+func (s *server) Create(_ context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
 	log.Printf("user id: %v", req.GetUserNames())
 
 	return &desc.CreateResponse{Id: 5}, nil
 }
 
-func (s *server) Delete(ctx context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
+func (s *server) Delete(_ context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
 	log.Printf("user id: %d", req.GetId())
 
 	return &emptypb.Empty{}, nil
 }
 
-func (s *server) SendMessage(ctx context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
+func (s *server) SendMessage(_ context.Context, req *desc.SendMessageRequest) (*emptypb.Empty, error) {
 	log.Printf("message: %v", req.MessageInfo)
 
 	return &emptypb.Empty{}, nil
