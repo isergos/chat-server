@@ -25,3 +25,11 @@ install-golangci-lint:
 
 lint:
 	GOBIN=$(LOCAL_BIN) golangci-lint run ./... --config .golangci.pipeline.yaml
+
+build:
+	GOOS=linux GOARCH=amd64 go build -o service_linux cmd/main.go
+
+docker-build-and-push:
+	docker buildx build --no-cache --platform linux/amd64 -t isergos/chat-server:v0.0.1 .
+	docker login -u isergos -p dckr_pat_SYr7_l-Pni6wnQt1QtQsZYTpxkQ
+	docker push isergos/chat-server:v0.0.1
