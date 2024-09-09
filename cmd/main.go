@@ -22,7 +22,7 @@ type server struct {
 func (s *server) Create(_ context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
 	log.Printf("user id: %v", req.GetUserNames())
 
-	return &desc.CreateResponse{Id: 5}, nil
+	return &desc.CreateResponse{Id: 7}, nil
 }
 
 func (s *server) Delete(_ context.Context, req *desc.DeleteRequest) (*emptypb.Empty, error) {
